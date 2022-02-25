@@ -566,6 +566,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color:rgba(231, 229, 229, 0.171);
 
 
     > .charity-section {
@@ -613,13 +614,25 @@ h1, h2, h3, h4, h5, h6 {
 
             > .single-charity {
                 max-width: 18rem;
+                transition: all 0.3s ease-in-out;
 
                 > img {
                     width: 18rem;
                     height: auto;
                     filter: brightness(85%) grayscale(30%);
                     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                    
                 }
+
+                
+
+                // img:hover {
+                //     cursor: pointer;
+                //     transition: all 0.4s ease-in-out;
+                //     transform: scale(1.1);
+
+                // }
+                
 
                 > p {
                     margin-left: 0.3rem;
@@ -632,8 +645,91 @@ h1, h2, h3, h4, h5, h6 {
                     
 
                 }
+
             }
+
+            .single-charity:hover  {
+                cursor: pointer;
+                transition: all 0.6s ease-in-out;
+                transform: scale(1.04);
+
+            }
+
+           
         }
     }
             
 }
+
+// Charities Grid 
+
+.charities-grid {
+    // padding: 1rem 0;
+    margin-bottom: 30rem;
+    background-color:rgba(231, 229, 229, 0.171);
+
+    h1 {
+        text-align: center;
+        padding: 1rem;
+        font-size: 2rem;
+
+    }
+}
+
+.c-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   
+
+    .char-element {
+        height: 30rem;
+        width: auto;
+        overflow: hidden;
+        position: absolute;
+        transform: skewX(-20deg);
+        // transition: width 1.2s ease-in-out;
+        margin-left: -90px;
+        background-color: aqua;
+        
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transform: skewX(20deg);
+            margin-left: 90px;
+            overflow: hidden;
+            filter: brightness(75%);
+            opacity: 0.8;
+        }
+        
+    }
+
+    .char-element:nth-of-type(1) { //bhf
+        margin-left: 49rem;
+        z-index: 0;
+        transform: skewX(0deg);
+
+        img {
+            transform: skewX(0deg);
+        }
+   
+    } 
+
+    .char-element:nth-of-type(2) { //wwf
+        margin-left: 6rem;
+        z-index: 0;
+    } 
+
+    .char-element:nth-of-type(3) { //sports rel
+        margin-left: -11.8rem;
+        // margin-left: 1rem;
+        z-index: 0;
+        
+    } 
+
+    .char-element:nth-of-type(4) { //lgbt
+        margin-left: -23rem;
+        z-index: 4;
+    } 
+}
+

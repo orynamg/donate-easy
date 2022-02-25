@@ -1,8 +1,23 @@
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Popup from "./pop-up";
 
 function NearMeContent() {
+
+    const [isOpen, setIsOpen] = useState(false);
+ 
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    }
+ 
+    
     return (
         <>
+
+            {isOpen && <Popup handleClose={togglePopup}
+            //To open pop up window when selecting a charity 
+            />} 
+            
             <nav class="secondary-nav">
 
                 <div class="nav-menu"><i class="fas fa-bars"></i></div>
@@ -26,7 +41,7 @@ function NearMeContent() {
                 <div className="charity-section">
                     <div className="bar">
 
-                        <h1>Nearest To You</h1>
+                    <h1>Charities Near me</h1>
 
                         <div className="arrows">
                             <h1><i class="far fa-arrow-alt-circle-left"></i></h1>
@@ -35,12 +50,16 @@ function NearMeContent() {
 
                     </div>
 
-                    <div className="charity-row">
+                    
+
+                    <div className="charity-row" onClick={togglePopup}>
                         <div className="single-charity">
                             <img src="images/shelter.jpeg" alt="" />
                             <h3>Shelter</h3>
                             <p>The Village, 258 Muswell Hill Broadway, London N10 3SH</p>
                         </div>
+
+                       
 
                         <div className="single-charity">
                             <img src="images/children-in-need.jpeg" alt="" />
@@ -105,8 +124,34 @@ function NearMeContent() {
                 
 
             </section>
+            <section className="charities-grid">
+                <h1>Other Charities To Choose From</h1>
+
+                <div className="c-grid poly--holder">
+
+                    <div className="char-element">
+                        <img src="images/mental-illness.jpeg" alt="" />
+                    </div>
+
+                    <div className="char-element">
+                        <img src="images/wwf.jpeg" alt="" />
+                    </div>
+
+                    <div className="char-element">
+                        <img src="images/sports-rel.jpeg" alt="" />
+                    </div>
+
+
+                    <div className="char-element">
+                        <img src="images/lbgt-foundation.jpeg" alt="" />
+                    </div>
+
+                </div>
+
+            </section>
         </>
         );
+    
  }
 
  export default NearMeContent;
